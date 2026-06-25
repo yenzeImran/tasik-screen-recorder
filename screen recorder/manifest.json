@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Tasik Labs Screen Recorder",
+  "version": "1.0",
+  "description": "An unthrottled, high-quality offline screen recorder dashboard.",
+  "permissions": [
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "recorder.html",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "32": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon.png",
+    "32": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  }
+}

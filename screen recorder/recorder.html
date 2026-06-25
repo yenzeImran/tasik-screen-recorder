@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasik Labs Screen Recorder</title>
+  <link rel="stylesheet" href="recorder.css">
+</head>
+<body>
+  <div id="popup-ui" class="popup-mode">
+    <div class="logo">
+      <div class="logo-icon">🎥</div>
+      <div>
+        <h2>Tasik Labs Recorder</h2>
+        <div class="subtitle">Pro Quality Capture</div>
+      </div>
+    </div>
+    <button id="open-recorder-btn" class="btn btn-primary">🎬 Open Dashboard</button>
+    <p class="author-tag"><i>by: yenzeimran</i></p>
+  </div>
+
+  <div id="recorder-ui" class="recorder-mode hidden">
+    <div class="recorder-card">
+      
+      <div id="setup-screen">
+        <h2 style="margin-bottom:8px;">Record Settings</h2>
+        <p style="color:var(--text-secondary);font-size:14px;margin-bottom:20px;">
+          Configure unthrottled parameters before initializing hardware capture.
+        </p>
+
+        <div class="quality-section">
+          <label>Quality Preset</label>
+          <div class="quality-options">
+            <button class="quality-btn" data-quality="1080p">
+              1080p<span class="resolution">Full HD</span>
+            </button>
+            <button class="quality-btn" data-quality="1440p">
+              2K<span class="resolution">Quad HD</span>
+            </button>
+            <button class="quality-btn" data-quality="4K">
+              4K<span class="resolution">Ultra HD</span>
+            </button>
+          </div>
+          <div class="quality-options">
+            <button class="quality-btn active max" data-quality="max">
+              8K MAX<span class="resolution">Lossless Native</span>
+            </button>
+          </div>
+
+          <label style="margin-top:16px;">Target Bitrate Limit</label>
+          <div class="bitrate-control">
+            <input type="range" id="bitrate-slider" min="10" max="150" value="100" step="5">
+            <span class="bitrate-value" id="bitrate-value">100 Mbps</span>
+          </div>
+        </div>
+
+        <button id="start-screen-btn" class="btn btn-primary">
+          🎯 Select Window & Start
+        </button>
+      </div>
+
+      <div id="recording-screen" class="hidden">
+        <div class="recording-header">
+          <div class="record-dot"></div>
+          <h2>Live Encoding Stream</h2>
+        </div>
+        
+        <div class="recording-stats">
+          <div class="stat-card">
+            <div class="stat-value" id="timer">00:00</div>
+            <div class="stat-label">Duration</div>
+          </div>
+          <div class="stat-card size">
+            <div class="stat-value" id="file-size">0 MB</div>
+            <div class="stat-label">Est. File Size</div>
+          </div>
+          <div class="stat-card bitrate">
+            <div class="stat-value" id="current-quality">Initializing</div>
+            <div class="stat-label">Output Format</div>
+          </div>
+        </div>
+
+        <button id="stop-btn" class="btn btn-danger">
+          ⏹ Stop Recording
+        </button>
+      </div>
+
+      <div id="download-screen" class="hidden">
+        <div class="success-icon">✅</div>
+        <h2 style="text-align:center;margin-bottom:8px;">MP4 Video Ready</h2>
+        <p style="text-align:center;color:var(--text-secondary);margin-bottom:24px;">
+          Your high-fidelity master MP4 recording is compiled and ready for playback.
+        </p>
+        
+        <div class="download-options">
+          <a id="download-video" class="btn btn-primary" href="#">⬇ Download Master MP4 Video</a>
+        </div>
+
+        <button id="new-recording-btn" class="btn btn-secondary" style="margin-top:12px;">
+          🔄 New Capture Session
+        </button>
+      </div>
+
+    </div>
+  </div>
+  <script src="recorder.js"></script>
+  <script src="mp4-muxer.js"></script>
+</body>
+</html>
